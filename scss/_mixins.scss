@@ -1,0 +1,128 @@
+@mixin heading {
+    font-family: $secondaryFont;
+    font-size: 50px;
+    line-height: 59px;
+    letter-spacing: 11px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 24px;
+    position: relative;
+
+    &::before {
+        content: "\0020";
+        display: block;
+        height: 1px;
+        background: $black;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+    }
+}
+
+@mixin description {
+  font-family: $primaryFont;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.118em;
+  color: $headingDescriptionColor;
+}
+
+@mixin fontAwesome {
+  font-family: 'Font Awesome\ 5 Free';
+  font-weight: 900; /* Fix version 5.0.9 */;
+}
+
+@mixin heading-lg {
+    font-family: $secondaryFont;
+    font-size: 50px;
+    line-height: 59px;
+    letter-spacing: 0.118em ;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 24px;
+    position: relative;
+
+
+    &::before {
+        content: "\0020";
+        display: block;
+        height: 1px;
+        background: $black;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+    }
+}
+
+@mixin description-lg {
+  font-family: $primaryFont;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.118em;
+  color: $headingDescriptionColor;
+  margin-top: 50px;
+}
+
+@mixin heading-md {
+    font-family: $secondaryFont;
+    font-size: 74px;
+    line-height: 87px;
+    letter-spacing: 0.118em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 24px;
+    position: relative;
+
+    &::before {
+        content: "\0020";
+        display: block;
+        height: 1px;
+        background: $black;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+    }
+}
+
+@mixin description-md {
+  font-family: $primaryFont;
+  font-size: 21px;
+  line-height: 35px;
+  letter-spacing: 0.118em;
+  color: $headingDescriptionColor;
+  margin-top: 70px;
+}
+
+@mixin heading-sm {
+    font-family: $secondaryFont;
+    font-size: 50px;
+    line-height: 59px;
+    letter-spacing: 0.118em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 24px;
+    position: relative;
+
+    &::before {
+        content: "\0020";
+        display: block;
+        height: 1px;
+        background: $black;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+    }
+}
+
+@mixin description-sm {
+  font-family: $primaryFont;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.118em;
+  color: $headingDescriptionColor;
+  margin-top: 50px;
+}

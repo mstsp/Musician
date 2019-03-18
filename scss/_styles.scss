@@ -1,0 +1,1547 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+    background: $bgHeader;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    @media all and (max-width: 1399px) {
+        background: transparent;
+    }
+
+
+}
+
+#ham {
+    display: none;
+
+    &:checked + .main-nav {
+        display: block;
+        position: relative;
+        top: 80px;
+        right: -870px;
+    }
+
+    @media all and (max-width: 1223px) {
+
+      &:checked + .main-nav {
+          right: -370px;
+      }
+    }
+}
+
+
+.hamburger {
+    font-size: 70px;
+    cursor: pointer;
+    color: $hamburgerColor;
+    position: fixed;
+    top: 80px;
+    right: 78px;
+
+    &__label::before {
+        @include fontAwesome;
+        content: '\f0c9';
+    }
+
+    @media all and (min-width: 1400px) {
+        display: none;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+        top: 80px;
+        right: 78px;
+
+    }
+
+    @media all and (max-width: 1223px) {
+      font-size: 65px;
+        top: 50px;
+        right: 10px;
+    }
+
+
+}
+
+.main-nav {
+    @include make-sm-column(12);
+    @include make-md-column(12);
+    @include make-lg-column(12);
+    font-family: $secondaryFont;
+    font-size: $headerFontSize;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+
+    }
+
+    &__link {
+
+    color: $mainNavLinkColor;
+    font-size: 27.4%;
+    line-height: $headerHeight;
+    text-transform: uppercase;
+    position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: $mainNavCurrentLinkColor;
+            top: 25px;
+            transition: all .2s linear;
+        }
+
+        &:hover {
+            text-decoration: none;
+            color: $mainNavCurrentLinkColor;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &:active {
+          color: $mainNavCurrentLinkColor;
+        }
+  }
+
+    @media all and (max-width: 1399px) {
+        display: none;
+    }
+}
+
+.banner {
+    height: 1062px;
+    background: url(../images/dj_bg.jpg) no-repeat top center;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        top: 350px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.discography {
+
+    &__content {
+      @include make-sm-column(10);
+      @include make-sm-column-offset(2);
+
+      @include make-md-column(12);
+      @include make-md-column-offset(0);
+
+      @include make-lg-column(8);
+      @include make-lg-column-offset(2);
+
+      text-align: center;
+    }
+
+    &__heading {
+        @include heading-lg;
+
+        background: url(../images/discography-heading-bg.jpg);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__description {
+        @include description-lg;
+        padding-bottom: 158px;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+
+        &__heading {
+          @include heading-md;
+        }
+        &__description {
+          @include description-md;
+          padding-bottom: 174px;
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+
+        &__heading {
+            @include heading-sm;
+        }
+        &__description {
+            @include description-sm;
+            padding-bottom: 113px;
+        }
+    }
+}
+
+
+.album {
+
+    &__row {
+        margin-bottom: 90px;
+    }
+
+    &__row:last-child {
+        background: url(../images/discography-bg.jpg) center bottom no-repeat;
+        background-size: cover;
+        min-height: 878px;
+    }
+
+    &__title {
+        @include make-sm-column(12);
+        @include make-md-column(12);
+        @include make-lg-column(5);
+
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.0118em;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        @include make-sm-column(12);
+        @include make-md-column(12);
+        @include make-lg-column(7);
+
+        font-family: $primaryFont;
+        letter-spacing: 0.0118em;
+    }
+
+    &__year {
+        border-bottom: 1px solid $black;
+        color: $scorpion;
+        padding-bottom: 6px;
+        margin-bottom: 4px;
+    }
+
+    &__name {
+        color: $black;
+    }
+
+    &__entry {
+        font-size: 23px;
+        line-height: 24px;
+        color: $black;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 24px;
+        color: $nobel;
+        padding: 20px 0;
+    }
+
+    &__button {
+        width: 195px;
+        height: 56px;
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        color: $white;
+        text-transform: uppercase;
+        border-color: transparent;
+
+        &--1 {
+            background-image: url(../images/button-bg-1.png);
+        }
+
+        &--2 {
+            background-image: url(../images/button-bg-2.png);
+        }
+
+        &--3 {
+            background-image: url(../images/button-bg-3.png);
+        }
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+        &__title {
+            font-size: 21px;
+            line-height: 36px;
+        }
+
+        &__description {
+            margin-bottom: 100px;
+          }
+
+        &__name {
+            margin-bottom: 50px;
+        }
+
+        &__entry {
+            font-size: 34px;
+            line-height: 52px;
+        }
+
+
+        &__text {
+            font-size: 21px;
+            line-height: 36px;
+            padding-bottom: 50px;
+            margin-bottom: 0px;
+            padding-top: 20px;
+        }
+
+
+        &__button {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+      &__title {
+          font-size: 15px;
+          line-height: 24px;
+      }
+
+      &__description {
+        }
+
+        &__name {
+            margin-bottom: 30px;
+        }
+
+        &__entry {
+            font-size: 23px;
+            line-height: 30px;
+        }
+
+        &__text {
+            font-size: 15px;
+            line-height: 24px;
+            padding-bottom: 90px;
+            margin-bottom: 50px;
+            padding-top: 20px;
+        }
+
+          &__button {
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+          }
+    }
+}
+
+
+.tours {
+
+    margin-top: 164px;
+
+    &__content {
+        @include make-sm-column(12);
+        @include make-md-column(12);
+        @include make-lg-column(10);
+        @include make-lg-column-offset(1);
+        text-align: center;
+    }
+
+    &__heading {
+
+        @include heading-lg;
+        background: linear-gradient(to bottom, $hippieBlue 0%, $gulfStream 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__description {
+        @include description-lg;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+
+        &__heading {
+          @include heading-md;
+        }
+
+        &__description {
+          @include description-md;
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+      margin-top: 108px;
+
+        &__heading {
+            @include heading-sm;
+        }
+
+        &__description {
+            @include description-sm;
+        }
+    }
+}
+
+.tours-info {
+
+    background: url(../images/tours-bg.png) center bottom no-repeat;
+    background-size: cover;
+    min-height: 980px;
+
+    &__row {
+        @include make-sm-column(7);
+        @include make-sm-column-offset(1);
+
+        @include make-md-column(7);
+
+        @include make-lg-column(7);
+    }
+
+    &__line {
+        width: 394px;
+        border: none;
+        border-bottom: 1px solid $black;
+        margin: 0;
+    }
+
+    &__current {
+        padding-top: 370px;
+    }
+
+    &__date {
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        color: $capeCod;
+    }
+
+    &__album {
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        color: $black;
+        text-transform: uppercase;
+    }
+
+    &__period {
+        font-family: $primaryFont;
+        font-size: 23px;
+        line-height: 24px;
+        padding-top: 84px;
+        margin-bottom: 30px;
+    }
+
+    &__text {
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 24px;
+        color: $osloGray;
+        padding-bottom: 40px;
+    }
+
+    &__button {
+        font-size: 14px;
+        line-height: 24px;
+        width: 196px;
+        height: 56px;
+        font-family: $primaryFont;
+        font-weight: bold;
+        color: $black;
+        border: 1px solid $edward;
+        background: transparent;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+        &__date {
+            font-size: 20px;
+            line-height: 36px;
+        }
+
+        &__album {
+            font-size: 20px;
+            line-height: 36px;
+        }
+
+        &__period {
+            font-size: 34px;
+            line-height: 36px;
+        }
+
+        &__text {
+            font-size: 21px;
+            line-height: 36px;
+        }
+
+        &__current {
+          padding-top: 260px;
+          padding-bottom: 66px;
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+        &__date {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__album {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__period {
+            font-size: 23px;
+            line-height: 24px;
+        }
+
+        &__text {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__current {
+          padding-top: 260px;
+        }
+    }
+}
+
+.latter-compositions {
+    margin-top: 164px;
+
+    &__content {
+        @include make-lg-column(8);
+        @include make-lg-column-offset(2);
+        text-align: center;
+    }
+
+    &__heading {
+        @include heading-lg;
+        color: $black;
+    }
+
+    &__description {
+        @include description-lg;
+        margin-bottom: 162px;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+        &__heading {
+            @include heading-md;
+            color: $black;
+        }
+
+        &__description {
+            @include description-md;
+            margin-bottom: 80px;
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+        &__heading {
+            @include heading-sm;
+            color: $black;
+        }
+
+        &__description {
+            @include description-sm;
+            margin-bottom: 64px;
+        }
+
+    }
+}
+
+.tracks {
+
+    &__description {
+        @include make-lg-column(6);
+    }
+
+    &__video {
+        @include make-lg-column(6);
+        padding: 0;
+
+        &--left {
+        @include make-lg-column-pull(6);
+        }
+    }
+
+    &__description {
+
+        min-height: 422px;
+        background: $blackHaze;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 37px;
+        padding-left: 34px;
+        padding-right: 52px;
+        padding-top: 20px;
+  }
+
+    &__date {
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $scorpion;
+    }
+
+    &__line {
+        width: 394px;
+        border: none;
+        border-bottom: 1px solid $black;
+        margin: 0;
+    }
+
+    &__album {
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        text-transform: uppercase;
+        color: $black;
+    }
+
+    &__title {
+        font-family: $primaryFont;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        margin-top: 38px;
+        color: $black;
+    }
+
+    &__text {
+        margin-top: 42px;
+        margin-bottom: 52px;
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.018em;
+        color: $rollingStone;
+
+        white-space: wrap;
+        overflow: hidden;
+        background: transparent;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+
+         display: -webkit-box;
+         -webkit-box-orient: vertical;
+         max-height: 24*3;
+      }
+
+    &__button {
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        width: 196px;
+        height: 56px;
+        font-family: $primaryFontBold;
+        color: $black;
+        border: 1px solid $nobel;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        &:after {
+            content: '\f105';
+            @include fontAwesome;
+            font-size: 14px;
+            position: absolute;
+            right: 28px;
+            bottom: 14px;
+        }
+    }
+
+    &__movie {
+      min-height: 422px;
+      min-width: 601px;
+    }
+
+    @media all and (min-width: 1400px){
+        &__description {
+
+          &--left {
+              &::before {
+                  content: '';
+                  position: absolute;
+                  display: inline-block;
+                  width: 0;
+                  height: 0;
+                  border-style: solid;
+                  border-width: 10px 0 10px 12px;
+                  border-color: transparent transparent transparent $blackHaze;
+                  right: -12px;
+                  bottom: 50%;
+                  transform: translateY(-50%);
+                  z-index: 5;
+              }
+          }
+
+
+          &--right {
+              @include make-lg-column-push(6);
+
+              &::after {
+                  content: '';
+                  position: absolute;
+                  display: inline-block;
+                  width: 0;
+                  height: 0;
+                  border-style: solid;
+                  border-width: 10px 12px 10px 0;
+                  border-color: transparent $blackHaze transparent transparent;
+                  left: -12px;
+                  bottom: 50%;
+                  transform: translateY(-50%);
+                  z-index: 5;
+              }
+          }
+      }
+
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+
+      &__row {
+        @include make-md-column(10);
+        @include make-md-column-offset(1);
+      }
+
+      &__description {
+
+          min-height: 422px;
+          background: $blackHaze;
+          padding: 0;
+          margin: 0;
+          padding-bottom: 37px;
+          padding-left: 34px;
+          padding-right: 52px;
+          padding-top: 20px;
+
+
+          &::before {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 12px 12px 0 12px;
+                border-color: $blackHaze transparent transparent transparent;
+                bottom: -11px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 5;
+            }
+        }
+
+        &__date {
+            font-size: 21px;
+            line-height: 34px;
+        }
+
+        &__album {
+            font-size: 21px;
+            line-height: 34px;
+        }
+
+        &__title {
+            font-size: 34px;
+            line-height: 37px;
+        }
+
+        &__text {
+            font-size: 21px;
+            line-height: 37px;
+        }
+
+        &__movie {
+            min-height: 697px;
+            min-width: 976px;
+        }
+
+        &__button {
+          font-size: 21px;
+          width: 300px;
+          height: 86px;
+
+          &:after {
+              content: '\f105';
+              @include fontAwesome;
+              font-size: 17px;
+              position: absolute;
+              right: 50px;
+              bottom: 27px;
+          }
+        }
+
+    }
+
+    @media all and (max-width: 1223px) {
+
+      &__row {
+        @include make-sm-column(10);
+        @include make-sm-column-offset(1);
+      }
+
+      &__description {
+
+          min-height: 422px;
+          background: $blackHaze;
+          padding: 0;
+          margin: 0;
+          padding-bottom: 37px;
+          padding-left: 34px;
+          padding-right: 52px;
+          padding-top: 20px;
+
+
+          &::before {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 12px 12px 0 12px;
+                border-color: $blackHaze transparent transparent transparent;
+                bottom: -11px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 5;
+            }
+        }
+
+        &__date {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__album {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__title {
+            font-size: 23px;
+            line-height: 24px;
+        }
+
+        &__text {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__button {
+          font-size: 15px;
+          width: 196px;
+          height: 56px;
+
+          &:after {
+              content: '\f105';
+              @include fontAwesome;
+              font-size: 17px;
+              position: absolute;
+              right: 25px;
+              bottom: 14px;
+          }
+        }
+
+        &__movie {
+            min-height: 420px;
+            min-width: 576px;
+        }
+    }
+}
+
+.stories {
+    margin-top: 160px;
+    background: url(../images/bio-bg.png) center bottom no-repeat;
+    background-size: cover;
+    min-height: 642px;
+    position: relative;
+    margin-bottom: 165px;
+    position: relative;
+
+    &__dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: $white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin: 84px 16px;
+
+        &--01 {
+            background-color: transparent;
+            border: 1px solid $white;
+        }
+  }
+
+    &__logo {
+        position: absolute;
+        top: 157px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+
+    &__heading {
+
+      @include make-sm-column(10);
+      @include make-sm-column-offset(1);
+
+      @include make-md-column(11);
+      @include make-md-column-offset(1);
+
+      @include make-lg-column(10);
+      @include make-lg-column-offset(1);
+
+
+      padding-top: 232px;
+      margin-bottom: 50px;
+      font-family: $secondaryFont;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0.018em;
+      text-transform: uppercase;
+      color: $white;
+      text-align: center;
+
+    }
+
+    &__description {
+
+        @include make-sm-column(10);
+        @include make-sm-column-offset(1);
+
+        @include make-md-column(8);
+        @include make-md-column-offset(2);
+
+        @include make-lg-column(6);
+        @include make-lg-column-offset(3);
+
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $rollingStone;
+        text-align: center;
+        margin-bottom: 100px;
+
+    }
+
+    &__period {
+        @include make-sm-column(4);
+        @include make-sm-column-offset(4);
+
+        @include make-md-column(4);
+        @include make-md-column-offset(4);
+
+        @include make-lg-column(2);
+        @include make-lg-column-offset(5);
+
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $rollingStone;
+        text-align: center;
+    }
+
+    &__arrow {
+        position: absolute;
+        z-index: 10;
+
+        &--left {
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+        }
+
+        &--right {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 86px 0 86px 86px;
+        border-color: transparent transparent transparent $white;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 86px 86px 86px 0;
+        border-color: transparent $white transparent transparent;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+        &__heading {
+            font-size: 27px;
+            line-height: 39px;
+        }
+
+        &__description {
+            font-size: 21px;
+            line-height: 36px;
+        }
+
+        &__period {
+            font-size: 20px;
+            line-height: 36px;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &__arrow {
+
+            &--left {
+              display: none;
+            }
+
+            &--right {
+              display: none;
+            }
+        }
+    }
+    @media all and (max-width: 1223px) {
+        &__heading {
+            font-size: 17px;
+            line-height: 26px;
+        }
+
+        &__description {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__period {
+            font-size: 14px;
+            line-height: 14px;
+        }
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &__arrow {
+
+            &--left {
+              display: none;
+            }
+
+            &--right {
+              display: none;
+            }
+        }
+    }
+}
+
+.songs {
+
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &__item {
+        min-height: 422px;
+        max-width: 384px;
+        margin-top: 28px;
+        width: 33%;
+        background-size: cover;
+        padding: 0 30px;
+
+
+        &--01 {
+          background: url(../images/songs-01.png) center bottom no-repeat;
+
+        }
+
+        &--02 {
+          background: url(../images/songs-02.png) center bottom no-repeat;
+        }
+
+        &--03 {
+          background: url(../images/songs-03.png) center bottom no-repeat;
+        }
+
+        &--04 {
+          background: url(../images/songs-04.png) center bottom no-repeat;
+        }
+
+        &--05 {
+          background: url(../images/songs-05.png) center bottom no-repeat;
+        }
+
+        &--06 {
+          background: url(../images/songs-06.png) center bottom no-repeat;
+        }
+    }
+
+    &__date {
+        padding-top: 34px;
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $fuscousGray;
+        border-bottom: 1px solid $black;
+    }
+
+    &__album{
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $white;
+        text-transform: uppercase;
+    }
+
+    &__name {
+        padding-top: 40px;
+        font-family: $primaryFont;
+        font-size: 23px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+    }
+
+    &__description {
+        padding-top: 34px;
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $rollingStone;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px)  {
+
+        &__item {
+            min-height: 642px;
+            max-width: 580px;
+            margin-top: 38px;
+            width: 50%;
+            background-size: cover;
+        }
+
+        &__date {
+            font-size: 21px;
+            line-height: 36px;
+        }
+
+        &__album{
+            font-size: 21px;
+            line-height: 36px;
+        }
+
+        &__name {
+            font-size: 34px;
+            line-height: 36px;
+        }
+
+        &__description {
+            font-size: 21px;
+            line-height: 36px;
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+
+        &__item {
+          min-height: 518px;
+          max-width: 472px;
+          margin-top: 55px;
+          width: 100%;
+          background-size: cover;
+        }
+
+        &__date {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__album{
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        &__name {
+            font-size: 23px;
+            line-height: 24px;
+        }
+
+        &__description {
+            font-size: 15px;
+            line-height: 24px;
+        }
+    }
+}
+
+.upcoming {
+    padding-top: 295px;
+    background: url(../images/upcoming-bg.png) center bottom no-repeat;
+    background-size: cover;
+    min-height: 1203px;
+    padding-bottom: 134px;
+
+    &__content {
+        @include make-sm-column(10);
+        @include make-sm-column-offset(2);
+
+        @include make-md-column(7);
+        @include make-md-column-offset(5);
+
+        @include make-lg-column(6);
+        @include make-lg-column-offset(6);
+    }
+
+    &__heading {
+        @include heading;
+        color: $black;
+        margin-left: -25px;
+        margin-bottom: 190px;
+    }
+
+    &__title {
+        font-family: $primaryFont;
+        font-size: 23px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+    }
+    &__line {
+        width: 201px;
+        border: none;
+        border-bottom: 1px solid $black;
+        margin: 0;
+        padding: 5px 0;
+
+        &--vertical {
+            border-width: 1px;
+            border-style: solid;
+            border-color: $black;
+            height: 52px;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            width: 1px;
+            margin-left: 30px;
+        }
+
+        &--vertical-long {
+            border-width: 1px;
+            border-style: solid;
+            border-color: $black;
+            height: 166px;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            width: 1px;
+            margin-left: 30px;
+        }
+    }
+
+    &__description {
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $jumbo;
+    }
+
+    &__date {
+        font-family: $primaryFontBold;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018em;
+        color: $doveGray;
+    }
+
+@media all and (min-width: 1224px) and (max-width: 1399px) {
+
+    &__title {
+        font-size: 34px;
+        line-height: 36px;
+    }
+    &__line {
+        width: 201px;
+        border: none;
+        border-bottom: 1px solid $black;
+        margin: 0;
+        padding: 5px 0;
+
+        &--vertical {
+            border-width: 1px;
+            border-style: solid;
+            border-color: $black;
+            height: 77px;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            width: 1px;
+            margin-left: 30px;
+        }
+
+        &--vertical-long {
+            border-width: 1px;
+            border-style: solid;
+            border-color: $black;
+            height: 249px;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            width: 1px;
+            margin-left: 30px;
+        }
+    }
+
+    &__description {
+        font-family: $primaryFont;
+        font-size: 21px;
+        line-height: 36px;
+        letter-spacing: 0.018em;
+        color: $jumbo;
+    }
+
+    &__date {
+        font-family: $primaryFontBold;
+        font-size: 21px;
+        line-height: 36px;
+        letter-spacing: 0.018em;
+        color: $doveGray;
+        }
+    }
+}
+
+.history {
+    background: url(../images/history-bg.png) center bottom no-repeat;
+    background-size: cover;
+    min-height: 1105px;
+
+    &__content {
+        @include make-lg-column(10);
+        @include make-lg-column-offset(1);
+        text-align: center;
+        padding-top: 160px;
+    }
+
+    &__heading {
+      @include heading;
+    }
+
+    &__description {
+      padding-top: 46px;
+      padding-bottom: 36px;
+      @include description;
+    }
+
+}
+
+.moments-nav {
+    @include make-lg-column(12);
+        letter-spacing: 3px;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+
+
+    &__item {
+        position: relative;
+    }
+
+    &__month {
+        font-family: $secondaryFont;
+        font-size: 35px;
+        line-height: 59px;
+        text-transform: uppercase;
+        color: $rollingStone;
+    }
+
+    &__line {
+        height: 1px;
+        width: 146px;
+        border: none;
+        border-bottom: 1px solid $rollingStone;
+        position: absolute;
+        left: 0;
+        top: 10px;
+    }
+}
+
+
+.contacts {
+    padding-top: 270px;
+    background: url(../images/contacts-bg.png) center bottom no-repeat;
+    background-size: cover;
+    min-height: 1105px;
+
+    &__content {
+        @include make-sm-column(9);
+        @include make-sm-column-offset(2);
+
+        @include make-md-column(8);
+        @include make-md-column-offset(4);
+
+
+        @include make-lg-column(6);
+        @include make-lg-column-offset(6);
+    }
+
+    &__heading {
+        @include heading;
+        margin-left: -30px;
+    }
+
+    &__description {
+        @include description;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.018px;
+    }
+
+    &__form {
+        @include make-sm-column(9);
+        @include make-sm-column-offset(2);
+
+        @include make-md-column(8);
+        @include make-md-column-offset(4);
+
+
+        @include make-lg-column(6);
+        @include make-lg-column-offset(6);
+
+        font-family: $primaryFont;
+        font-size: 14px;
+        line-height: 24px;
+        width: 384px;
+        background: transparent;
+        padding-top: 90px;
+        padding-left: 0;
+    }
+
+    &__data {
+      border-right: 1px solid $black;
+      margin-right: 26px;
+      width: 541px;
+      position: relative;
+      float: left;
+    }
+
+    &__item {
+        width: 384px;
+        background: transparent;
+        border-color: transparent;
+        border-bottom: 1px solid $black;
+        padding-top: 20px;
+    }
+
+    &__socials {
+        position: relative;
+        font-size: 20px;
+    }
+
+    &__link {
+        &--fb::before {
+            content: '\f39e';
+            @include fontAwesome;
+      }
+
+        &--ig::before {
+            content: '\f16d';
+            @include fontAwesome;
+        }
+
+        &--tw::before {
+            content: '\f099';
+            @include fontAwesome;
+        }
+    }
+
+    &__button {
+        font-size: 20px;
+        line-height: 24px;
+        width: 196px;
+        height: 56px;
+        font-family: $primaryFontBold;
+        color: $black;
+        text-transform: uppercase;
+        border-color: transparent;
+        background: transparent;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    @media all and (min-width: 1224px) and (max-width: 1399px) {
+
+        &__form {
+            font-size: 20px;
+            line-height: 35px;
+            width: 566px;
+            background: transparent;
+            padding-top: 90px;
+            padding-left: 0;
+        }
+
+        &__button {
+            font-size: 29px;
+            line-height: 35px;
+        }
+    }
+
+    @media all and (max-width: 1223px) {
+
+        &__form {
+            font-size: 15px;
+            line-height: 24px;
+            width: 409px;
+            background: transparent;
+            padding-top: 90px;
+            padding-left: 0;
+        }
+
+        &__button {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+}
